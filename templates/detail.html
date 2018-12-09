@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}장고 책갈피 상세보기{% endblock %}
+{% load staticfiles %}  <!--정적 파일을 읽어들임. 스타일 처리-->
+{% block extrastyle %}{% static "css/tabular.css" %}{% endblock %}
+{% block content %}
+    <div id="content" class="centered">  <!--base.css 내부의 div#contents 스타일 적용-->
+        <h1 class="centered" id="level"><br>Level Test</h1><br><br><br>
+        <form id="teacherform2">
+            테스트 결과를 발송드릴 이메일 주소를 입력해주세요.<br><br>
+            <input type="text" name="email" id="email" placeholder="&nbsp이메일 주소">&nbsp&nbsp@
+             <select name="opt" class="select">
+               <option value="naver.com" label="naver.com"/>
+               <option value="daum.net" label="daum.net"/>
+               <option value="gmail.com" label="gmail.com"/>
+               <option value="hanmail.net" label="hanmail.net"/>
+             </select><br>
+        </form>
+        <table id="tbl" >
+            <tr>
+                <th>Question</th>
+                <th>Answer</th>
+            </tr>
+            <tr>
+                <td class="td">
+                    <p class="p1">[기초 문장력 테스트]</p>
+                    <p class="p2">다음 빈 칸에 들어갈 단어를 선택하세요.</p><hr>
+                    <p class="p3">You (&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp) good-skin.<br>너 피부가 좋네.</p>
+                </td>
+                <td class="td">
+                    <ul class="clearfix">
+                        <li><input type="radio" id="q1_1" name="q1" value="1">&nbsp<label for="q1_1">have</label></li><br>
+                        <li><input type="radio" id="q1_2" name="q1" value="2">&nbsp<label for="q1_2">are</label></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    <p class="p1">[기초 문장력 테스트]</p>
+                    <p class="p2">다음 우리 말에 대한 영어 문장을 선택하세요.</p><hr>
+                    <p class="p3">너 살 빠졌다~</p>
+                </td>
+                <td class="td">
+                    <ul class="clearfix">
+                        <li><input type="radio" id="q2_1" name="q2" value="1">&nbsp<label for="q2_1">You lost weight.</label></li><br>
+                        <li><input type="radio" id="q2_2" name="q2" value="2">&nbsp<label for="q2_2">You lose weight.</label></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    <p class="p1">[기초 영작 테스트]</p>
+                    <p class="p2">다음 우리 말에 대한 영어 문장을 선택하세요.</p><hr>
+                    <p class="p3">저 남자가 너랑 썸타고 있는 사람이야?</p>
+                </td>
+                <td class="td">
+                    <ul class="clearfix">
+                        <li><input type="radio" id="q4_1" name="q4" value="1">&nbsp<label for="q4_1">Is that man flirting with you?</label></li><br>
+                        <li><input type="radio" id="q4_2" name="q4" value="2">&nbsp<label for="q4_2">Does that man flirting with you?</label></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="td">
+                    <P class="p1">[학습 성향 질문]</P>
+                    <p class="p2">다음 빈 칸에 들어갈 단어를 선택하세요.</p><hr>
+                    <p class="p3">I don’t know why, but my cell phone (&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp)<br>왠지 모르겠는데, 핸드폰이 안돼.</p>
+                </td>
+                <td class="td">
+                    <ul class="clearfix">
+                        <li><input type="radio" id="q5_1" name="q5" value="1">&nbsp<label for="q5_1">doesn’t work</label></li><br>
+                        <li><input type="radio" id="q5_2" name="q5" value="2">&nbsp<label for="q5_2">doesn’t working</label></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <div>
+            <button id="testsubmit" onclick="alert('테스트 결과는 입력하신 메일로 발송되었습니다!')"><a href="{% url 'home' %}">결과 확인하기</a></button>
+        </div>
+    </div>
+{% endblock %}

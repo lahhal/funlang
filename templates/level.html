@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}장고 책갈피 상세보기{% endblock %}
+{% load staticfiles %}  <!--정적 파일을 읽어들임. 스타일 처리-->
+{% block extrastyle %}{% static "css/tabular.css" %}{% endblock %}
+{% block content %}
+    <div id="content" class="centered">  <!--base.css 내부의 div#contents 스타일 적용-->
+        <div id="homeimg">      <!--homeimg 영역 정의-->
+            <!--<a href="/"><img src="{% static 'img/django-actor-big.jpg' %}" style="height:256px;"/></a>-->
+                <img src="{% static 'img/levelbanner.png' %}" style="width: 100%; height:750px;"/>
+            <!--<h4 style="margin: 0;">장고 프레임워크로 개발한 웹 사이트입니다.</h4>-->
+        </div>
+        <div>
+            <button id="leveltest"><a href="{% url 'detail' %}">레벨테스트 하기</a></button>
+        </div>
+    </div>
+{% endblock %}

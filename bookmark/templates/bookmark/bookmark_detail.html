@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}장고 책갈피 상세보기{% endblock %}
+{% load staticfiles %}  <!--정적 파일을 읽어들임. 스타일 처리-->
+{% block extrastyle %}{% static "css/tabular.css" %}{% endblock %}
+{% block content %}
+    <div id="content" class="centered">  <!--base.css 내부의 div#contents 스타일 적용-->
+        <!--<h1>{{ object.title }}</h1> &lt;!&ndash; 제목은 object.title로 지정 &ndash;&gt;-->
+        <!--<p>-->
+            <!--{{ object.text|linebreaks }}-->
+        <!--</p>-->
+        <table id="tbl" >
+            <tr>
+                <th>제목</th>
+                <td><h2>{{ object.title }}</h2></td>
+
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td id="td1">{{ object.text|linebreaks }}</td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

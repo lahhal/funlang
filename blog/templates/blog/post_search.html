@@ -1,0 +1,190 @@
+<!--ch09 작성 시작-->
+{% extends "base.html" %}
+{% block title %}장고 게시글 검색{% endblock %}
+{% load staticfiles %}
+{% block extrastyle %}{% static "css/tabular.css" %}{% endblock %}
+{% block content %}
+<div id="content">
+    <div id="homeimg">      <!--homeimg 영역 정의-->
+        <!--<a href="/"><img src="{% static 'img/django-actor-big.jpg' %}" style="height:256px;"/></a>-->
+            <img src="{% static 'img/teacherbanner.png' %}" style="width: 100%; height:750px;"/>
+        <!--<h4 style="margin: 0;">장고 프레임워크로 개발한 웹 사이트입니다.</h4>-->
+    </div>
+    <!--blog.views.SearchFormView.form_valid() 함수와 함께 보면서 작업하라-->
+    <h1 class="centered">FUN Language 강사 지원하기</h1><br><br>
+    <div class="centered formdiv">
+        <form id="teacherform">
+            이메일 주소 *&nbsp&nbsp
+            <input type="text" name="email" id="email" placeholder="&nbsp이메일 주소">&nbsp&nbsp@
+             <select name="opt" class="select">
+               <option value="naver.com" label="naver.com"/>
+               <option value="daum.net" label="daum.net"/>
+               <option value="gmail.com" label="gmail.com"/>
+               <option value="hanmail.net" label="hanmail.net"/>
+             </select><br><br>
+            <!--<input type="text" name="email" id="email2"><br><br>-->
+            휴대폰 번호 *&nbsp&nbsp
+            <input type="text" name="phone" class="phone" placeholder="&nbsp휴대폰 번호"><br><br><br>
+            우리가 영어를 공부하는 이유와 그 목적은 무엇이라고 생각하시는지 자유롭게 말씀해주세요. *<br><br>
+            <textarea rows="10" cols="30" id="textarea"></textarea><br><br>
+            한국의 영어 공부는 어떤가요? 앞으로의 영어 공부는 어떻게 바뀌어야 할까요? *<br><br>
+            <textarea rows="10" cols="30" id="textarea2"></textarea><br><br>
+            FUN Language는 영어 학습에 도움이 된다고 생각하시나요? 선생님의 의견과 그 이유를 말씀해주세요. *<br><br>
+            <textarea rows="10" cols="30" id="textarea3"></textarea><br><br>
+            FUN Language의 선생님으로 참여하고 싶은 이유를 가능한 자세하게 말씀해주세요. *<br><br>
+            <textarea rows="10" cols="30" id="textarea4"></textarea><br><br>
+            FUN Language에서 강의 하고 싶은 영상 종류를 선택해주세요. *<br><br>
+            <input type="checkbox" name="video" class="video">&nbsp&nbsp애니메이션<br>
+            <input type="checkbox" name="video" class="video">&nbsp영화<br>
+            <input type="checkbox" name="video" class="video">&nbsp드라마<br>
+            <input type="checkbox" name="video" class="video">&nbsp&nbsp예능·오락<br><br><br>
+            영어 시험 성적을 알려주세요. (TOEIC: 990 / TOEIC Speaking: Level 8 등) *<br><br>
+            <input type="text" name="phone" class="phone"><br><br>
+            영어 강의와 관련된 공인 자격이 있다면 알려주세요. *<br><br>
+            <input type="text" name="phone" class="phone"><br><br><br>
+            현재 강의 중인 곳이 있으시다면 선택해주세요. *<br><br>
+            <input type="checkbox" name="video" class="video">&nbsp학교<br>
+            <input type="checkbox" name="video" class="video">&nbsp학원<br>
+            <input type="checkbox" name="video" class="video">&nbsp과외<br>
+            <input type="checkbox" name="video" class="video">&nbsp&nbsp온라인 강의<br>
+            <input type="checkbox" name="video" class="video">&nbsp&nbsp기타&nbsp&nbsp
+            <input type="text" name="etc" id="etc"><br><br><br>
+            선생님의 성함을 알려주세요. (본명이 아니셔도 무방합니다) *<br><br>
+            <input type="text" name="phone" class="phone"><br><br>
+            선생님의 성별을 알려주세요. *<br><br>
+             <select name="opt" class="select">
+               <option value="여성" label="여성"/>
+               <option value="남성" label="남성"/>
+             </select><br><br>
+            선생님의 연령을 알려주세요. (만 나이 기준) *<br><br>
+            <input type="text" name="phone" class="phone"><br><br>
+            마지막으로, 회사에 전하고 싶으신 말씀이 있으신가요? *<br><br>
+            <textarea rows="10" cols="30" id="textarea5"></textarea><br><br>
+        </form>
+        <div>
+            <button id="sugang" onclick="alert('성공적으로 지원되었습니다.')"><a href="{% url 'home' %}">지원하기</a></button>
+        </div>
+    </div>
+    <!--form 태그로 폼을 출력, 확인 누르면 POST 방식으로 요청을 동일한 URL로 전송-->
+    <!--CSRF 공격(Cross Site Request Forgery) 출처: http://itstory.tk/entry/CSRF-공격이란-그리고-CSRF-방어-방법 [덕's IT Story]-->
+    <!--csrf-token 태그를 써서 CSRF 공격을 방지-->
+    <!--<form id="my_form" action="." method="post">-->
+        <!--{% csrf_token %}-->
+        <!--<div class="centered">-->
+            <!--<table align="center">-->
+                <!--&lt;!&ndash;form은 뷰가 넘겨준 PostSearchForm을 의미함&ndash;&gt;-->
+                <!--&lt;!&ndash;as_table, as_ul, as_p&ndash;&gt;-->
+                 <!--{{ form.as_table }}-->
+            <!--</table>-->
+            <!--&lt;!&ndash;<button>초기화</button>&ndash;&gt;-->
+            <!--<input type="submit" value="확인" />-->
+            <!--&lt;!&ndash;<input type="button" value="Reset" onClick="this.form.reset()" />&ndash;&gt;-->
+        <!--</div>-->
+    <!--</form>-->
+    <!--<br/><br/>-->
+    <!--{% if object_list and search_term %}-->
+        <!--<h2 class="centered">-->
+            <!--({{ search_term }})에 대한 <i>통합</i> 검색 결과-->
+        <!--</h2>-->
+        <!--<table id="tbl">-->
+            <!--<tr>-->
+                <!--<th>번호</th>-->
+                <!--<th>최종 수정일</th>-->
+                <!--<th>제목</th>-->
+                <!--<th>슬러그</th>-->
+                <!--<th>요약</th>-->
+                <!--<th>태그</th>-->
+            <!--</tr>-->
+            <!--{% for post in object_list %}-->
+            <!--<tr>-->
+                <!--<td>{{ post.id }}</td>-->
+                <!--<td>{{ post.modify_date|date:"Y년 m월 d일" }}</td>-->
+                <!--<td>-->
+                    <!--<a href='{{ post.get_absolute_url }}'>-->
+                        <!--<strong>{{ post.title }}</strong>-->
+                    <!--</a>-->
+                <!--</td>-->
+                <!--<td>{{ post.slug }}</td>-->
+                <!--<td>{{ post.description }}</td>-->
+                <!--<td>{{ post.tag }}</td>-->
+            <!--</tr>-->
+            <!--{% endfor %}-->
+        <!--</table>-->
+    <!--{% elif search_term %}-->
+        <!--<p class="centered"><strong>-->
+            <!--({{ search_term }})에 대한 <i>통합</i>검색 결과가 없습니다!-->
+        <!--</strong></p>-->
+    <!--{% else %}-->
+        <!--<p class="centered"><strong>-->
+            <!--<i>통합</i> 검색어를 입력하세요.-->
+        <!--</strong></p>-->
+    <!--{% endif %}-->
+
+    <!--<br/><br/>-->
+
+    <!--&lt;!&ndash;{# 장고 템플릿 언어 if 문에 ()를 사용할 수 없으므로, 중첩 if 문을 써야 한다!!! #}&ndash;&gt;-->
+    <!--&lt;!&ndash;{{ search_title }} {{ search_description }} {{ search_content }} {{ search_tag }}&ndash;&gt;-->
+    <!--{% if  search_title or search_description or search_content or search_tag %}-->
+        <!--{% if my_object_list %}-->
+            <!--<h2 class="centered">-->
+                <!--{% if search_title %}-->
+                    <!--({{ search_title }})-->
+                <!--{% endif %}-->
+                <!--{% if search_description %}-->
+                    <!--({{ search_description }})-->
+                <!--{% endif %}-->
+                <!--{% if search_content %}-->
+                    <!--({{ search_content }})-->
+                <!--{% endif %}-->
+                <!--{% if search_tag %}-->
+                    <!--({{ search_tag }})-->
+                <!--{% endif %}에 대한 <i>개별</i> 검색 결과-->
+            <!--</h2>-->
+            <!--<table id="tbl">-->
+                <!--<tr>-->
+                    <!--<th>번호</th>-->
+                    <!--<th>최종 수정일</th>-->
+                    <!--<th>제목</th>-->
+                    <!--<th>슬러그</th>-->
+                    <!--<th>요약</th>-->
+                    <!--<th>태그</th>-->
+                <!--</tr>-->
+                <!--{% for post in my_object_list %}-->
+                <!--<tr>-->
+                    <!--<td>{{ post.id }}</td>-->
+                    <!--<td>{{ post.modify_date|date:"Y년 m월 d일" }}</td>-->
+                    <!--<td>-->
+                        <!--<a href='{{ post.get_absolute_url }}'>-->
+                            <!--<strong>{{ post.title }}</strong>-->
+                        <!--</a>-->
+                    <!--</td>-->
+                    <!--<td>{{ post.slug }}</td>-->
+                    <!--<td>{{ post.description }}</td>-->
+                    <!--<td>{{ post.tag }}</td>-->
+                <!--</tr>-->
+                <!--{% endfor %}-->
+            <!--</table>-->
+        <!--{% else %}-->
+            <!--<p class="centered"><strong>-->
+                <!--{% if search_title %}-->
+                    <!--({{ search_title }})-->
+                <!--{% endif %}-->
+                <!--{% if search_description %}-->
+                    <!--({{ search_description }})-->
+                <!--{% endif %}-->
+                <!--{% if search_content %}-->
+                    <!--({{ search_content }})-->
+                <!--{% endif %}-->
+                <!--{% if search_tag %}-->
+                    <!--({{ search_tag }})-->
+                <!--{% endif %}에 대한 <i>개별</i> 검색 결과가 없습니다!-->
+            <!--</strong></p>-->
+        <!--{% endif %}-->
+    <!--{% else %}-->
+        <!--<p class="centered"><strong>-->
+            <!--<i>개별</i> 검색어를 입력하세요.-->
+        <!--</strong></p>-->
+    <!--{% endif %}-->
+</div>
+{% endblock %}
+<!--ch09 작성 종료-->

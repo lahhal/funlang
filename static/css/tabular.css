@@ -1,0 +1,187 @@
+#tbl {
+    position: relative;
+    top: 40px;
+    border-collapse: collapse;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+#tbl td, #tbl th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tbl tr:nth-child(even){background-color: #f2f2f2;}
+
+#tbl tr:hover {background-color: #ddd;}
+
+#tbl th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.centered {
+    position: relative;
+    top: 30px;
+    text-align: center;
+}
+
+.leftpadding30percent {
+    padding-left: 30%;
+}
+
+div#content {
+    position: absolute;
+    top: 130px;
+}
+
+div#homeimg {
+    text-align: center;
+    margin-left: -50px;
+    margin-right: -50px;
+}
+
+#tbl td#td1 {
+    height: 500px;
+    font-size: 20px;
+    line-height: normal;
+}
+
+div > button#leveltest {
+    position: fixed;
+    top: 745px;
+    left: 5%;
+    width: 350px;
+    height: 80px;
+    font-size: 28px;
+    border-style: none;
+    background-color: #4CAF50;
+    font-weight: 700;
+}
+
+div > button#leveltest > a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#tbl ul > li {
+    list-style: none;
+}
+
+
+.p1 {
+    font-size: 18px;
+    color: green;
+}
+
+.p2 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.p3 {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+hr {
+    color: #ffffff;
+}
+
+#level {
+    margin: 0 auto;
+    border-style: double;
+    border-color: #2e9660;
+    position: relative;
+    top: 0px;
+    width: 50%;
+    height: 120px;
+}
+
+.clearfix {
+    font-size: 25px;
+    text-align: left;
+    position: relative;
+    top: 35px;
+}
+
+input {
+    width: 20px;
+    height: 20px;
+}
+
+div > button#testsubmit {
+    position: relative;
+    top: 40px;
+    width: 350px;
+    height: 80px;
+    margin-bottom: 80px;
+    font-size: 28px;
+    border-style: none;
+    background-color: #4CAF50;
+    font-weight: 700;
+}
+
+div > button#testsubmit > a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#email, #email2 {
+    width: 300px;
+    height: 25px;
+}
+
+.phone {
+    width: 300px;
+    height: 25px;
+}
+
+#teacherform {
+    text-align: left;
+}
+
+.formdiv {
+    left: 30%;
+}
+
+#textarea, #textarea2, #textarea3, #textarea4, #textarea5 {
+    width: 710px;
+    height: 100px;
+}
+
+.select {
+    width: 300px;
+    height: 30px;
+}
+
+#etc {
+    width: 300px;
+    height: 25px;
+}
+
+div > button#sugang {
+    position: relative;
+    top: 10px;
+    width: 250px;
+    height: 50px;
+    font-size: 20px;
+    border-style: none;
+    background-color: rgba(36, 183, 86, 0.85);
+    font-weight: 700;
+    left: -30%;
+    margin-bottom: 100px;
+}
+
+div > button#sugang > a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#teacherform2 {
+    text-align: center;
+}

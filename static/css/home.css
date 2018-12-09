@@ -1,0 +1,45 @@
+div#content_home {
+    position: absolute;
+    top: 130px;
+    left: 0px;
+    right: 0px;
+}
+
+div#homeimg {
+    text-align: center;
+}
+
+div#content {
+    top : 800px;
+    text-align: center;
+}
+
+div > h2 {
+    font-size: 30px;
+}
+
+#applist {
+    margin: 0 auto;
+    text-align: left;
+}
+
+div#homeimg2 {
+    position: relative;
+    top: 340px;
+    padding: 5px 0 1px 0;
+    text-align: center;
+}
+div#footer {
+    top: 2300px;
+    left: 0px;
+    right: 0px;
+    height: 190px;
+    background-color: #ececec;
+    padding-left: 35%;
+    text-align: left;
+    border-top: none;
+}
+
+#compintrop {
+    font-size: 20px;
+}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}                   <!--base.html을 상속받는다고 선언-->
+
+{% block title %}FUN Language{% endblock %}    <!--title 블록 재정의-->
+
+<!--정적 파일인 css 연결하기 위하여, staticfiles를 로드-->
+{% load staticfiles %}
+<!--extrastyle 블록을 재정의하여 추가적으로 home.css 연결-->
+{% block extrastyle %}{% static "css/home.css" %}{% endblock %}
+
+{% block content %}                         <!--content 블록 재정의-->
+
+<div id="content_home">     <!--content_home 영역 정의-->
+
+    <div id="homeimg">      <!--homeimg 영역 정의-->
+        <!--<a href="/"><img src="{% static 'img/django-actor-big.jpg' %}" style="height:256px;"/></a>-->
+            <img src="{% static 'img/homebanner.png' %}" style="width: 100%; height:780px;"/>
+        <!--<h4 style="margin: 0;">장고 프레임워크로 개발한 웹 사이트입니다.</h4>-->
+    </div>
+
+    <!--<hr style="margin: 5px 0;">     &lt;!&ndash;그림 및으로 5px 간격을 두고 수평선 넣기&ndash;&gt;-->
+    <div id="content">
+        <h2>FUN Language만의 독자적 영어 클래스!</h2>
+        <div id="compintro">
+            <p id="compintrop">
+                 <br>영어 공부에서 가장 중요한 것은<br>살아 있는 언어 데이터를 가능한 한 많이 모아두는 것입니다.<br><br>
+                 영상을 보고, 듣고, 따라 말하고, 퀴즈를 풀며 다양하게 반복 훈련하는 트레이닝은<br>살아있는 언어를 빠른 시간에 가장 많이 내 것으로 만들 수 있는 최적의 프로그램입니다.<br><br>
+                <b>FUN Language는 그러한 프로그램을 제공합니다!</b>
+            </p>
+        </div>
+        <!--<table id="applist">-->
+            <!--<tr>-->
+            <!--<td><b><i><a href="{% url 'bookmark:index' %}">책갈피</a></i></b></td>-->
+            <!--<td>당신의 책갈피를 등록하고 다른 사람들과 공유할 수 있습니다. 어쩌구 저쩌구. 중얼중얼.</td>-->
+            <!--<td class="Edit"><i><a href="#">등록</a></i></td>-->
+            <!--<td class="Edit"><i><a href="#">편집</a></i></td>-->
+            <!--</tr>-->
+
+            <!--<tr>-->
+            <!--<td><b><i><a href="{% url 'blog:index' %}">게시판</a></i></b></td>-->
+            <!--<td>당신의 게시물을 등록하고 다른 사람들과 공유할 수 있습니다. 어쩌구 저쩌구.</td>-->
+            <!--<td class="Edit"><i><a href="#">등록</a></i></td>-->
+            <!--<td class="Edit"><i><a href="#">편집</a></i></td>-->
+            <!--</tr>-->
+
+            <!--<tr>-->
+            <!--<td><b><i><a href="#">사진첩</a></i></b></td>-->
+            <!--<td>당신의 사진을 등록하고 다른 사람들과 공유할 수 있습니다. 어쩌구 저쩌구.</td>-->
+            <!--<td class="Edit"><i><a href="#">등록</a></i></td>-->
+            <!--<td class="Edit"><i><a href="#">편집</a></i></td>-->
+            <!--</tr>-->
+        <!--</table>-->
+    </div>
+
+    <div id="homeimg2">      <!--homeimg 영역 정의-->
+        <!--<a href="/"><img src="{% static 'img/django-actor-big.jpg' %}" style="height:256px;"/></a>-->
+        <img src="{% static 'img/homebanner2.png' %}" style="width: 100%; height:730px;"/>
+        <!--<h4 style="margin: 0;">장고 프레임워크로 개발한 웹 사이트입니다.</h4>-->
+    </div>
+</div>
+{% endblock content %}
+
+{% block footer %}                      <!--footer 블록 재정의-->
+    <div id="footer"><br><br>
+        상호: 주식회사 퀄슨&nbsp&nbsp|&nbsp&nbsp사업자번호: 120-86-87406&nbsp&nbsp|&nbsp&nbsp대표자명: 문예지&nbsp&nbsp|&nbsp&nbsp원격평생교육시설<br>
+        주소: 서울특별시 종로구 세종대로 149 광화문빌딩 15층&nbsp&nbsp|&nbsp&nbspFax: 02-1522-0549<br>
+        고객센터: 1522-0548 / 운영시간 9:00 ~ 18:00 (주말·공휴일 제외 / 점심시간 12:00 ~ 13:00)<br><br>
+        TM & ⓒ 2018 Cartoon Network
+        <!--<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Copyleft.svg/220px-Copyleft.svg.png" height="12" width="12" />-->
+    </div>
+{% endblock footer %}
