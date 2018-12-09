@@ -136,3 +136,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]   # 추가 (교과서 40 �
 
 MEDIA_URL = '/media/'                             # 추가 (교과서 40 쪽)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')    # 추가 (교과서 40 쪽)
+
+# LOGIN_URL = '/accounts/login/'
+# LOGOUT_URL = '/accounts/logout/'
+LOGIN_REDIRECT_URL = '/'

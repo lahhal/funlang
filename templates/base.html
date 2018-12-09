@@ -16,10 +16,22 @@
 
 <div id="header">                   <!--헤더 영역-->
     <h1 class="maintitle"><a href="{% url 'home' %}" id="toptitle">FUN Language</a></h1>
-    <h4 class="welcome">반갑습니다. <a href="#">이아현 </a>님  /
-                <a href="#">비밀번호 변경</a> /
-                <a href="#">로그아웃</a>
-    </h4>
+    {% if user.is_active %}
+        <h4 class="welcome">반갑습니다,
+            <strong>{% firstof user.get_short_name user.get_username %} 님</strong> /
+            <a href="{% url 'password_change' %}">비밀번호 변경</a> /
+            <a href="{% url 'logout' %}">로그아웃</a>
+        </h4>
+    {% else %}
+        <h4 class="welcome">반갑습니다, 익명의 손님 /
+            <a href="{% url 'login' %}">로그인</a> /
+            <a href="{% url 'register' %}">회원가입</a>
+        </h4>
+    {% endif %}
+    <!--<h4 class="welcome">반갑습니다. <a href="#">이아현 </a>님  /-->
+                <!--<a href="#">비밀번호 변경</a> /-->
+                <!--<a href="#">로그아웃</a>-->
+    <!--</h4>-->
 </div>
 
 <div id="menu">                     <!--메뉴 영역-->

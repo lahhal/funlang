@@ -145,9 +145,9 @@ div > button#testsubmit > a {
     text-align: left;
 }
 
-.formdiv {
-    left: 30%;
-}
+/*.formdiv {*/
+    /*left: 0%;*/
+/*}*/
 
 #textarea, #textarea2, #textarea3, #textarea4, #textarea5 {
     width: 710px;
@@ -173,7 +173,7 @@ div > button#sugang {
     border-style: none;
     background-color: rgba(36, 183, 86, 0.85);
     font-weight: 700;
-    left: -30%;
+    right: 30%;
     margin-bottom: 100px;
 }
 

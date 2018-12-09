@@ -7,9 +7,13 @@ from django.conf import settings                                        # ch10 2
 from mysite.views import HomeView                 # 추가!!!
 from mysite.views import LevelView
 from mysite.views import LeveldetailView
+from mysite.views import UserCreateView, UserCreateDoneTV     # 추가
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
+    url(r'^accounts/register/$', UserCreateView.as_view(), name='register'),
+    url(r'^accounts/register/done/$', UserCreateDoneTV.as_view(), name='register_done'),
     url(r'^$', HomeView.as_view(), name='home'),  # 추가!!!
     url(r'^level/', LevelView.as_view(), name='level'),  # 추가!!!
     url(r'^detail', LeveldetailView.as_view(), name='detail'),  # 추가!!!
